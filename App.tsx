@@ -11,15 +11,14 @@ import {
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MyClassComponent from "./components/MyClassComponent";
+import MyFunctionComponent from "./components/MyFunctionComponent";
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView styles={{ flex: 1 }}>
         <MyClassComponent />
-        <MyClassComponent />
-        <MyClassComponent />
-        <MyClassComponent />
+        <MyFunctionComponent />
       </SafeAreaView>
     </SafeAreaProvider>
   );
