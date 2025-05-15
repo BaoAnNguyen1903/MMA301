@@ -1,18 +1,23 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, Button, StyleSheet, Text, View } from "react-native";
+
+const onPressButton = () => {
+  Alert.alert("dasdhasidah");
+};
 
 export default function App() {
   return (
-    <>
-      <View>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-      </View>
-      <View>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-      </View>
-    </>
+    <View style={styles.container}>
+      <Text>Demo Button</Text>
+      <Button title="Click Me" color="red" onPress={() => alert("me")} />
+      <Button
+        title="Click Me"
+        color="red"
+        disabled={false}
+        onPress={onPressButton}
+      />
+      <Button title="Click Me" color="red" disabled={true} />
+    </View>
   );
 }
 
