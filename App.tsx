@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   Alert,
   Button,
@@ -8,36 +7,23 @@ import {
   TextInput,
   View
 } from "react-native";
-
-const onPressButton = () => {
-  Alert.alert("dasdhasidah");
-};
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image
-        source={require("./assets/icon.png")}
-        style={{ width: 200, height: 200 }}
-      />
+      <Ionicons name="albums" size={32} color="red" />
+      <Ionicons name="albums-outline" size={32} color="red" />
+      <Ionicons name="albums-sharp" size={32} color="red" />
+      <Ionicons name="accessibility" size={32} color="red" />
 
-      <Image
-        source={{
-          uri: "https://icdn.dantri.com.vn/2017/khieu-dam-tre-em-1-1489518122023.jpg"
-        }}
-        style={{ width: 200, height: 200 }}
-        resizeMode="contain"
-      />
+      <AntDesign name="star" size={32} color="yellow" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    // alignItems: "center",
-    justifyContent: "center",
-    padding: 16
+    flex: 1
   }
 });
