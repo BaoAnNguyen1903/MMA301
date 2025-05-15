@@ -9,20 +9,19 @@ import {
   View
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import MyClassComponent from "./components/MyClassComponent";
 
 export default function App() {
   return (
-    <ScrollView horizontal pagingEnabled>
-      <View style={styles.page}>
-        <Text>1</Text>
-      </View>
-      <View style={styles.page}>
-        <Text>2</Text>
-      </View>
-      <View style={styles.page}>
-        <Text>3</Text>
-      </View>
-    </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView styles={{ flex: 1 }}>
+        <MyClassComponent />
+        <MyClassComponent />
+        <MyClassComponent />
+        <MyClassComponent />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
