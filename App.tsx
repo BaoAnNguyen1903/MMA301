@@ -2,6 +2,7 @@ import {
   Alert,
   Button,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -11,19 +12,27 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Ionicons name="albums" size={32} color="red" />
-      <Ionicons name="albums-outline" size={32} color="red" />
-      <Ionicons name="albums-sharp" size={32} color="red" />
-      <Ionicons name="accessibility" size={32} color="red" />
-
-      <AntDesign name="star" size={32} color="yellow" />
-    </View>
+    <ScrollView horizontal pagingEnabled>
+      <View style={styles.page}>
+        <Text>1</Text>
+      </View>
+      <View style={styles.page}>
+        <Text>2</Text>
+      </View>
+      <View style={styles.page}>
+        <Text>3</Text>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
+  page: {
+    width: 250,
+    height: 300,
+    justifyContent: "center",
+    backgroundColor: "lightblue",
+    borderWidth: 1,
+    marginBottom: 40
   }
 });
