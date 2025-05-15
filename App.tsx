@@ -12,25 +12,23 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MyClassComponent from "./components/MyClassComponent";
 import MyFunctionComponent from "./components/MyFunctionComponent";
+import Greeting from "./components/Greeting";
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView styles={{ flex: 1 }}>
-        <MyClassComponent />
-        <MyFunctionComponent />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <View>
+      <Greeting name="An" address="02 tien son 11" />
+      <Greeting name="An1" address="02 tien son 11" />
+      <Greeting name="An1" address="02 tien son 11" />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  page: {
-    width: 250,
-    height: 300,
-    justifyContent: "center",
-    backgroundColor: "lightblue",
-    borderWidth: 1,
-    marginBottom: 40
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
