@@ -6,7 +6,7 @@ const Counter = () => {
   const increase = () => setCount(count + 1);
   return (
     <View>
-      <Text>{count}</Text>
+      <Text style={{ fontSize: 25, color: "blue" }}>{count}</Text>
       <Button title="Increase" onPress={increase} />
     </View>
   );
