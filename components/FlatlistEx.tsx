@@ -34,7 +34,7 @@ const Item = (props: ItemProps) => {
   );
 };
 
-const onPressHanlder = (item) => {
+const onPressHanlder = (item: any) => {
   Alert.alert("Item pressed", `You pressed ${item.id} => ${item.title}`);
 };
 
