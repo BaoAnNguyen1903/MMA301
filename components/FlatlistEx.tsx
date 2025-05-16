@@ -1,13 +1,28 @@
-import { FlatList } from "react-native";
+import { FlatList, Text, View } from "react-native";
+
+const Data = [
+  { id: "1", title: "item1" },
+  { id: "2", title: "item2" },
+  { id: "3", title: "item3" },
+  { id: "4", title: "item4" },
+  { id: "5", title: "item5" },
+  { id: "6", title: "item6" },
+  { id: "7", title: "item7" }
+];
 
 const FlatlistEx = () => {
-    return (
-        <FlatList 
-            data={[]}
-            renderItem={null}
-            keyExtractor={null}
-        />
-    )
-}
+  return (
+    <FlatList
+      data={Data}
+      renderItem={({ item }) => (
+        <View>
+          <Text>{item.id}</Text>
+          <Text>{item.title}</Text>
+        </View>
+      )}
+      keyExtractor={(item) => item.id}
+    />
+  );
+};
 
 export default FlatlistEx;
