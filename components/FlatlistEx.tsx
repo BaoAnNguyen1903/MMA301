@@ -15,9 +15,18 @@ const FlatlistEx = () => {
     <FlatList
       data={Data}
       renderItem={({ item }) => (
-        <View>
-          <Text>{item.id}</Text>
-          <Text>{item.title}</Text>
+        <View
+          style={{
+            padding: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: "red",
+            margin: 10,
+            backgroundColor: "#ccc"
+          }}
+        >
+          <Text>
+            {item.id} - {item.title}
+          </Text>
         </View>
       )}
       keyExtractor={(item) => item.id}
