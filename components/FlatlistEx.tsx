@@ -1,4 +1,4 @@
-import { FlatList, Text, View } from "react-native";
+import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 
 const Data = [
   { id: "1", title: "item1" },
@@ -10,24 +10,40 @@ const Data = [
   { id: "7", title: "item7" }
 ];
 
+interface ItemProps {
+  item: { id: string; title: string };
+  onPress: () => void;
+}
+
+const Item = (props: ItemProps) => {
+  return (
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={{
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "#ccc",
+        margin: 10,
+        backgroundColor: "lightblue"
+      }}
+    >
+      <Text>
+        {props.item.id} - {props.item.title}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+const onPressHanlder = (item) => {
+  Alert.alert("Item pressed", `You pressed ${item.id} => ${item.title}`);
+};
+
 const FlatlistEx = () => {
   return (
     <FlatList
       data={Data}
       renderItem={({ item }) => (
-        <View
-          style={{
-            padding: 10,
-            borderBottomWidth: 1,
-            borderBottomColor: "red",
-            margin: 10,
-            backgroundColor: "#ccc"
-          }}
-        >
-          <Text>
-            {item.id} - {item.title}
-          </Text>
-        </View>
+        <Item item={item} onPress={() => onPressHanlder(item)} />
       )}
       keyExtractor={(item) => item.id}
     />
