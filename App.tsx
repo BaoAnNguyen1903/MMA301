@@ -8,18 +8,12 @@ import {
   TextInput,
   View
 } from "react-native";
-import { AntDesign, Ionicons } from "@expo/vector-icons";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import MyClassComponent from "./components/MyClassComponent";
-import MyFunctionComponent from "./components/MyFunctionComponent";
-import Greeting from "./components/Greeting";
+import Counter from "./components/Counter";
 
 export default function App() {
   return (
     <View>
-      <Greeting name="An" address="02 tien son 11" />
-      <Greeting name="An1" address="02 tien son 11" />
-      <Greeting name="An1" address="02 tien son 11" />
+      <Counter />
     </View>
   );
 }
