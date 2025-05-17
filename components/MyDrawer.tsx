@@ -63,6 +63,12 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 20,
     fontWeight: "bold"
+  },
+  drawerContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: 16,
+    marginTop: 24
   }
 });
 
