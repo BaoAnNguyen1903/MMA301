@@ -1,21 +1,21 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ScrollView, StyleSheet, View } from "react-native";
-
-import MyDrawer from "./components/MyDrawer";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { RootStackParamList } from "./types/NavigationType";
+import { NavigationContainer } from "@react-navigation/native";
+import Screen2 from "./screens/Screen2";
+import Screen1 from "./screens/Screen1";
+
+const Root = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView horizontal pagingEnabled>
-          <View>Page 1</View>
-          <View>Page 2</View>
-          <View>Page 3</View>
-          <View>Page 4</View>
-          <View>Page 5</View>
-        </ScrollView>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Root.Navigator initialRouteName="Screen1">
+        <Root.Screen name="Screen1" component={Screen1} />
+        <Root.Screen name="Screen2" component={Screen2} />
+      </Root.Navigator>
+    </NavigationContainer>
   );
 }
 
