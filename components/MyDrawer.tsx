@@ -28,7 +28,7 @@ const MyDrawer = () => {
       drawerPosition="left"
       renderNavigationView={navigationView}
     >
-      <View >
+      <View>
         <TouchableOpacity onPress={() => drawer.current?.openDrawer()}>
           <Ionicons name="menu" size={32} color="black" />
         </TouchableOpacity>
@@ -50,6 +50,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
     marginTop: 24
+  },
+  headerText: {
+    fontSize: 20,
+    marginLeft: 16
+  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 
