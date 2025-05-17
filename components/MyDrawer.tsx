@@ -69,6 +69,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 16,
     marginTop: 24
+  },
+  drawerText: {
+    fontSize: 18,
+    marginBottom: 20
+  },
+  closeButtom: {
+    padding: 10,
+    backgroundColor: "lightgray",
+    borderRadius: 5
+  },
+  closeButtomText: {
+    fontSize: 16,
+    color: "black"
   }
 });
 
