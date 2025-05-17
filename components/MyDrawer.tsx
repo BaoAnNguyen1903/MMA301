@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import {
   DrawerLayoutAndroid,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View
@@ -27,7 +28,7 @@ const MyDrawer = () => {
       drawerPosition="left"
       renderNavigationView={navigationView}
     >
-      <View>
+      <View >
         <TouchableOpacity onPress={() => drawer.current?.openDrawer()}>
           <Ionicons name="menu" size={32} color="black" />
         </TouchableOpacity>
@@ -39,5 +40,17 @@ const MyDrawer = () => {
     </DrawerLayoutAndroid>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16,
+    backgroundColor: "#f8f8f8",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    marginTop: 24
+  }
+});
 
 export default MyDrawer;
