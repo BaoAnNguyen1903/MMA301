@@ -11,7 +11,7 @@ const Screen1: React.FC<Screen1Props> = ({ navigation }) => {
   const [name, setName] = useState<string>("");
   const handleSummit = () => {
     if (name.trim()) {
-      navigation.navigate("Screnn2", { name });
+      navigation.navigate("Screen2", { name });
     } else {
       alert("Please enter your name");
     }
