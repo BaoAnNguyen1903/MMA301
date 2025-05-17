@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  mainText: {
+    fontSize: 20,
+    fontWeight: "bold"
   }
 });
 
