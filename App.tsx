@@ -10,22 +10,12 @@ import {
 } from "react-native";
 import Counter from "./components/Counter";
 import FlatlistEx from "./components/FlatlistEx";
+import MyDrawer from "./components/MyDrawer";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <FlatlistEx />
+    <View style={{ flex: 1 }}>
+      <MyDrawer />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    paddingTop: 500,
-    backgroundColor: "#fff",
-    // alignItems: "center",
-    justifyContent: "center"
-  }
-});
