@@ -12,11 +12,14 @@ const MyDrawer = () => {
   const drawer = useRef<DrawerLayoutAndroid>(null);
 
   const navigationView = () => {
-    <View>
-      <Text>Item 1</Text>
-      <Text>Item 2</Text>
-      <TouchableOpacity onPress={() => drawer.current?.closeDrawer()}>
-        <Text>Close Drawee</Text>
+    <View style={styles.drawerContainer}>
+      <Text style={styles.drawerText}>Item 1</Text>
+      <Text style={styles.drawerText}>Item 2</Text>
+      <TouchableOpacity
+        style={styles.closeButtom}
+        onPress={() => drawer.current?.closeDrawer()}
+      >
+        <Text style={styles.closeButtomText}>Close Drawee</Text>
       </TouchableOpacity>
     </View>;
   };
@@ -28,14 +31,14 @@ const MyDrawer = () => {
       drawerPosition="left"
       renderNavigationView={navigationView}
     >
-      <View>
+      <View style={styles.header}>
         <TouchableOpacity onPress={() => drawer.current?.openDrawer()}>
           <Ionicons name="menu" size={32} color="black" />
         </TouchableOpacity>
-        <Text>Header</Text>
+        <Text style={styles.headerText}>Header</Text>
       </View>
-      <View>
-        <Text>Content</Text>
+      <View style={styles.container}>
+        <Text style={styles.mainText}>Content</Text>
       </View>
     </DrawerLayoutAndroid>
   );
