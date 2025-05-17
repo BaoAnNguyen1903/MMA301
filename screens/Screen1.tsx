@@ -19,7 +19,12 @@ const Screen1: React.FC<Screen1Props> = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>Enter your name</Text>
-      <TextInput placeholder="Your name" onChangeText={setName} value={name} />
+      <TextInput
+        style={styles.input}
+        placeholder="Your name"
+        onChangeText={setName}
+        value={name}
+      />
       <Button title="Next" onPress={handleSummit} />
     </View>
   );
@@ -36,6 +41,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 20
+  },
+  input: {
+    width: "100%",
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    backgroundColor: "#fff"
   }
 });
 export default Screen1;
