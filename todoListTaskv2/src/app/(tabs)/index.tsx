@@ -25,8 +25,12 @@ const styles = StyleSheet.create({
 
 const HomeScreen = (props: any) => {
   const [tasks, setTasks] = useState<ITask[]>([
-    { id: 1, title: "homework", description: "làm bài tập về nhà." },
-    { id: 2, title: "hoidanit", description: "" }
+    { id: 1, title: "minecraft", description: "chơi mai ráp" },
+    {
+      id: 2,
+      title: "ansinhvien",
+      description: "đăng ký kênh youtube ân sinh viên"
+    }
   ]);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -62,7 +66,7 @@ const HomeScreen = (props: any) => {
           keyExtractor={(item) => item.id + ""}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity onPress={() => router.navigate("/detail")}>
+              <TouchableOpacity onPress={() => router.navigate("")}>
                 <View style={styles.reviewItem}>
                   <Text>{item.title}</Text>
                 </View>

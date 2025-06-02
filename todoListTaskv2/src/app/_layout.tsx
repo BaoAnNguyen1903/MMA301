@@ -11,6 +11,10 @@ const RootLayout = () => {
           name="(tabs)"
           options={{ headerShown: false, title: "Home" }}
         />
+        <Stack.Screen
+          name="(tabs)/detail"
+          options={{ headerShown: false, title: "Task Detail" }}
+        />
       </Stack>
     </SafeAreaView>
   );
