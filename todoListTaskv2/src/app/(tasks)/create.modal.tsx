@@ -2,6 +2,7 @@ import {
   Alert,
   Button,
   Modal,
+  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
@@ -13,6 +14,7 @@ import { useState } from "react";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 15,
     padding: 10,
     backgroundColor: "#fff"
   },
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     marginVertical: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 5
   }
@@ -81,9 +83,9 @@ const CreateModal = (props: IProps) => {
     setTitle("");
   };
   return (
-    <>
-      <Modal animationType="slide" transparent={true} visible={modalVisible}>
-        <View style={styles.container}>
+    <Modal animationType="slide" transparent={true} visible={modalVisible}>
+      <SafeAreaView style={styles.container}>
+        <View style={{ paddingHorizontal: 15 }}>
           {/* header */}
           <View style={styles.header}>
             <Text style={{ fontSize: 25 }}>CREATE A NEW TASK</Text>
@@ -118,13 +120,14 @@ const CreateModal = (props: IProps) => {
               />
             </View>
           </View>
+
           {/* footer */}
           <View style={{ marginTop: 20 }}>
-            <Button title="Add" onPress={() => handleSubmit()} />
+            <Button title="Add" onPress={handleSubmit} />
           </View>
         </View>
-      </Modal>
-    </>
+      </SafeAreaView>
+    </Modal>
   );
 };
 
