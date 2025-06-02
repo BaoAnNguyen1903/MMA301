@@ -2,13 +2,12 @@ import {
   Alert,
   Button,
   Modal,
-  Pressable,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { TextInput } from "react-native-gesture-handler";
 import { useState } from "react";
 
 const styles = StyleSheet.create({
@@ -113,7 +112,6 @@ const CreateModal = (props: IProps) => {
             <View>
               <Text style={styles.text}>Description</Text>
               <TextInput
-                keyboardType="numeric"
                 style={styles.input}
                 value={description}
                 onChangeText={(v) => setDescription(v)}

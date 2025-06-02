@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   taskText: {
     fontSize: 25,
     padding: 15
-    // fontFamily: OPENSANS_REGULAR,
   }
 });
 
@@ -14,8 +13,8 @@ const DetailScreen = () => {
 
   return (
     <View>
-      <Text style={styles.taskText}>Id: {id}</Text>
-      <Text style={styles.taskText}>Tiêu đề: {title}</Text>
+      <Text style={styles.taskText}>ID: {id}</Text>
+      <Text style={styles.taskText}>Title: {title}</Text>
       <Text style={styles.taskText}>Description: {description}</Text>
     </View>
   );
