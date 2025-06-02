@@ -9,7 +9,7 @@ import {
   View
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const styles = StyleSheet.create({
   container: {
@@ -48,48 +48,70 @@ const styles = StyleSheet.create({
   }
 });
 
+interface ITask {
+  id: number;
+  title: string;
+  description: string;
+  completed?: boolean;
+}
+
 interface IProps {
   modalVisible: boolean;
-  setModalVisible: (v: boolean) => void;
-  addNew: any;
+  setModalVisible: (visible: boolean) => void;
+  editingTask: ITask | null;
+  update: (task: ITask) => void;
 }
-const CreateModal = (props: IProps) => {
-  const { modalVisible, setModalVisible, addNew } = props;
+
+const UpdateModal = ({
+  modalVisible,
+  setModalVisible,
+  editingTask,
+  update
+}: IProps) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  function randomInteger(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  useEffect(() => {
+    if (editingTask) {
+      setTitle(editingTask.title);
+      setDescription(editingTask.description);
+    } else {
+      setTitle("");
+      setDescription("");
+    }
+  }, [editingTask]);
 
   const handleSubmit = () => {
-    if (!title) {
-      Alert.alert("Thông tin không hợp lệ", "Nội dung không được để trống");
+    if (!title.trim()) {
+      Alert.alert("Thông tin không hợp lệ", "Tiêu đề không được để trống");
       return;
     }
 
-    if (!description) {
+    if (!description.trim()) {
       Alert.alert("Thông tin không hợp lệ", "Mô tả không được để trống");
       return;
     }
 
-    addNew({
-      id: randomInteger(2, 2000000),
-      title,
-      description
-    });
+    if (editingTask) {
+      update({
+        ...editingTask,
+        title: title.trim(),
+        description: description.trim()
+      });
+    }
 
     setModalVisible(false);
-    setDescription("");
     setTitle("");
+    setDescription("");
   };
+
   return (
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <SafeAreaView style={styles.container}>
         <View style={{ paddingHorizontal: 15 }}>
           {/* header */}
           <View style={styles.header}>
-            <Text style={{ fontSize: 25 }}>CREATE A NEW TASK</Text>
+            <Text style={{ fontSize: 25 }}>UPDATE TASK</Text>
             <AntDesign
               onPress={() => {
                 setModalVisible(false);
@@ -109,7 +131,8 @@ const CreateModal = (props: IProps) => {
               <TextInput
                 value={title}
                 style={styles.input}
-                onChangeText={(v) => setTitle(v)}
+                onChangeText={setTitle}
+                placeholder="Nhập tiêu đề"
               />
             </View>
             <View>
@@ -117,14 +140,15 @@ const CreateModal = (props: IProps) => {
               <TextInput
                 style={styles.input}
                 value={description}
-                onChangeText={(v) => setDescription(v)}
+                onChangeText={setDescription}
+                placeholder="Nhập mô tả"
               />
             </View>
           </View>
 
           {/* footer */}
           <View style={{ marginTop: 20 }}>
-            <Button title="Add" onPress={handleSubmit} />
+            <Button title="Update" onPress={handleSubmit} />
           </View>
         </View>
       </SafeAreaView>
@@ -132,4 +156,4 @@ const CreateModal = (props: IProps) => {
   );
 };
 
-export default CreateModal;
+export default UpdateModal;

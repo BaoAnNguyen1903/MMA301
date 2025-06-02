@@ -1,4 +1,4 @@
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Octicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useState } from "react";
 import {
@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import CreateModal from "../(tasks)/create.modal";
+import UpdateModal from "../(tasks)/update.modal";
 
 interface ITask {
   id: number;
@@ -67,7 +68,9 @@ const HomeScreen = () => {
     }
   ]);
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [createModalVisible, setCreateModalVisible] = useState(false);
+  const [updateModalVisible, setUpdateModalVisible] = useState(false);
+  const [editingTask, setEditingTask] = useState<ITask | null>(null);
 
   const addNew = (item: ITask) => {
     setTasks([...tasks, item]);
@@ -79,6 +82,13 @@ const HomeScreen = () => {
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
+  };
+
+  const updateTask = (updatedTask: ITask) => {
+    setTasks((prev) =>
+      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+    setEditingTask(null);
   };
 
   const deleteTask = (id: number) => {
@@ -98,16 +108,14 @@ const HomeScreen = () => {
       >
         TO DO LIST TASKS
       </Text>
-
       <View style={{ alignItems: "center", marginBottom: 10 }}>
         <AntDesign
-          onPress={() => setModalVisible(true)}
+          onPress={() => setCreateModalVisible(true)}
           name="plussquareo"
           size={40}
           color="#8685E7"
         />
       </View>
-
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}
@@ -139,7 +147,15 @@ const HomeScreen = () => {
 
             <View style={styles.iconRow}>
               <TouchableOpacity onPress={() => toggleComplete(item.id)}>
-                <AntDesign name="check" size={20} color="#4CAF50" />
+                <AntDesign name="check" size={25} color="#4CAF50" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setEditingTask(item);
+                  setUpdateModalVisible(true);
+                }}
+              >
+                <Octicons name="pencil" size={20} color="orange" />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => deleteTask(item.id)}>
                 <AntDesign name="close" size={24} color="red" />
@@ -148,12 +164,18 @@ const HomeScreen = () => {
           </View>
         )}
       />
-
       <CreateModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
+        modalVisible={createModalVisible}
+        setModalVisible={setCreateModalVisible}
         addNew={addNew}
       />
+      <UpdateModal
+        modalVisible={updateModalVisible}
+        setModalVisible={setUpdateModalVisible}
+        editingTask={editingTask}
+        update={updateTask} // hàm update task bạn đã định nghĩa
+      />
+      ;
     </View>
   );
 };
