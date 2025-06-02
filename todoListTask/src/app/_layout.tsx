@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import DetailScreen from "./detail";
 
 const RootLayout = () => {
   return (
@@ -8,6 +9,7 @@ const RootLayout = () => {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="intro" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="detail" options={{ title: "Task Detail" }} />
       </Stack>
     </SafeAreaView>
   );
