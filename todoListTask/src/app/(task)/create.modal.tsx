@@ -79,7 +79,7 @@ const CreateModal = (props: IProps) => {
         <View style={styles.container}>
           {/* header */}
           <View style={styles.header}>
-            <Text style={{ fontSize: 25 }}>Create a review</Text>
+            <Text style={{ fontSize: 25 }}>Create a task</Text>
             <AntDesign
               onPress={() => {
                 setModalVisible(false);
@@ -95,7 +95,7 @@ const CreateModal = (props: IProps) => {
           {/* body */}
           <View>
             <View style={styles.groupInput}>
-              <Text style={styles.text}>Nội dung</Text>
+              <Text style={styles.text}>Title</Text>
               <TextInput
                 value={title}
                 style={styles.input}
@@ -103,9 +103,8 @@ const CreateModal = (props: IProps) => {
               />
             </View>
             <View>
-              <Text style={styles.text}>Rating</Text>
+              <Text style={styles.text}>Description</Text>
               <TextInput
-                keyboardType="numeric"
                 style={styles.input}
                 value={description}
                 onChangeText={(v) => setDescription(v)}
