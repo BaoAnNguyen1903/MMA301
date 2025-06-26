@@ -12,7 +12,7 @@ const Intro = () => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.replace("/(tabs)")}
+          onPress={() => router.navigate("/(auth)/login")}
         >
           <Text style={styles.buttonText}>Getting Started</Text>
         </TouchableOpacity>

@@ -1,4 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRouter } from "expo-router";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +23,13 @@ const styles = StyleSheet.create({
   }
 });
 const AboutScreen = () => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem("savedUser");
+    router.replace("/login");
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -29,6 +45,14 @@ const AboutScreen = () => {
       >
         Made by An Nguyen
       </Text>
+
+      <View style={{ padding: 24 }}>
+        <TouchableOpacity onPress={handleLogout}>
+          <Text style={{ color: "#8685E7", fontWeight: "bold", fontSize: 28 }}>
+            Logout
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

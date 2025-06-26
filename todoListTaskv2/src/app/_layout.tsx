@@ -15,6 +15,7 @@ const RootLayout = () => {
           name="(tasks)/detail"
           options={{ title: "Task Detail" }}
         />
+        <Stack.Screen name="(auth)/login" options={{ headerShown: false }} />
       </Stack>
     </SafeAreaView>
   );
